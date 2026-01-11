@@ -24,7 +24,7 @@
       </a-box>
 
       <!-- Text hidden by default -->
-      <a-text id="popupText" value="Hello! You touched me!" color="#000000"
+      <a-text id="popupText" value="" color="#000000"
               position="0 3 -3" visible="false">
       </a-text>
 
@@ -38,13 +38,29 @@
         const box = document.querySelector('#myBox');
         const text = document.querySelector('#popupText');
 
+        const messages = [
+          "Hello please to meet you",
+          "I am the cube guardian here",
+          "Say the word shazam to pass on"
+        ];
+        let index = 0;
+
         box.addEventListener('click', () => {
+          text.setAttribute('value', messages[index]);
           text.setAttribute('visible', true);
+
+          setTimeout(() => {
+            text.setAttribute('visible', false);
+          }, 2000);
+
+          index = (index + 1) % messages.length;
         });
       </script>
 
     </a-scene>
   </body>
+</html>
+
 </html>
 
 
